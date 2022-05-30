@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
+use App\Models\User;
+
 class SignInController extends Controller
 {
     /**
@@ -20,7 +22,17 @@ class SignInController extends Controller
 
     public function __invoke(Request $request)
     {
-        if (!$token = auth()->attempt($request->only("email", "password"))) return response(null, 401);
-        return response()->json(compact("token"));
+        $credentials = ["password" => $request->password];
+
+        if(User::where("username", $request->email_username)->exists()){
+            $credentials["email"] = User::where("username", $request->email_username)
+                ->first()
+                ->email;
+        }else{
+            $credentials["email"] = $request->email_username;
+        }
+
+        if (!$token = auth()->attempt($credentials)) return response("Unauthorized", 401);
+        return response()->json(compact("token"), 200);
     }
 }

@@ -8,12 +8,12 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.2.5|^8.0",
+        "php": "^7.3",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
-        "laravel/framework": "^6.20.26",
+        "laravel/framework": "^6.0",
         "laravel/tinker": "^2.5",
-        "tymon/jwt-auth": "1.0.0-rc.5"
+        "tymon/jwt-auth": "1.0.0-rc.5.1"
     },
     "require-dev": {
         "facade/ignition": "^1.16.15",
@@ -29,7 +29,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+              "laravel/dusk"
+            ]
         }
     },
     "autoload": {

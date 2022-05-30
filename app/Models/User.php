@@ -36,23 +36,12 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $hidden = [
-        "id",
         "is_admin",
         "password",
         "remember_token",
         "created_at",
         "updated_at"
     ];
-
-    /**
-     * Get the route key for the model.
-     *
-     * @return string
-     */
-    public function getRouteKeyName()
-    {
-        return "email";
-    }
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
@@ -72,5 +61,47 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return "username";
+    }
+
+    /**
+     * The follower users collection from the user.
+     */
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, "followed_follower", "followed_id", "follower_id");
+    }
+
+    /**
+     * The followed users collection from the user.
+     */
+    public function followings()
+    {
+        return $this->belongsToMany(User::class, "followed_follower", "follower_id", "followed_id");
+    }
+
+    /**
+     * The posts collection that the user likes.
+     */
+    public function posts_liked()
+    {
+        return $this->belongsToMany(Post::class, "like_post", "user_id");
+    }
+
+    /**
+     * The posts collection that the user dislikes.
+     */
+    public function posts_disliked()
+    {
+        return $this->belongsToMany(Post::class, "dislike_post", "user_id");
     }
 }

@@ -17,6 +17,7 @@ class MeController extends Controller
 
     public function __invoke()
     {
-        return response()->json(["user" => auth()->user()]);
+        $user = auth()->user();
+        return response()->json(compact("user"));
     }
 }

@@ -20,12 +20,12 @@ class CreateUsersTable extends Migration
             $table->string("username", 50)->unique();
             $table->string("profile_picture_url")->default("");
             $table->string("cover_picture_url")->default("");
-            $table->tinyInteger("is_admin")->default(0);
+            $table->unsignedBigInteger("role_id")->default(1);
             $table->string("biography")->nullable();
             $table->string("location", 50)->nullable();
             $table->string("birthplace", 50)->nullable();
-            $table->enum("marital_status", ["single", "engaged", "married"]);
-            $table->string("password", 50);
+            $table->enum("marital_status", ["none", "single", "engaged", "married"]);
+            $table->string("password");
             $table->timestamps();
         });
     }

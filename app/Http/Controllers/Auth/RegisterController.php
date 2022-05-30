@@ -48,7 +48,7 @@ class RegisterController extends Controller
             "name" => ["required", "string", "max:75"],
             "email" => ["required", "string", "email", "max:50", "unique:users"],
             "username" => ["required", "string", "min:4", "max:50", "unique:users"],
-            "password" => ["required", "string", "min:8", "max:50", "confirmed"]
+            "password" => ["required", "string", "min:8", "confirmed"]
         ]);
     }
 
@@ -81,6 +81,9 @@ class RegisterController extends Controller
         if ($validation->fails()) return response()->json(["errors" => $validation->errors()]);
 
         $user = $this->create($request->all());
-        return response()->json(compact("user"));
+        $credentials = ["email" => $request->email, "password" => $request->password];
+
+        if (!$token = auth()->attempt($credentials)) return response("Unauthorized", 401);
+        return response()->json(compact("token"), 200);
     }
 }

@@ -22,6 +22,14 @@ Route::group(["prefix" => "auth", "namespace" => "Auth"], function(){
 
 Route::group(["prefix" => "users"], function(){
     Route::apiResource("users", "UserController")->except(["store"]);
-    Route::post("follow/{user}", "UserController@follow");
-    Route::post("unfollow/{user}", "UserController@unfollow");
+    Route::post("follow", "UserController@follow");
+    Route::post("unfollow", "UserController@unfollow");
+});
+
+Route::group(["prefix" => "posts"], function(){
+    Route::apiResource("posts", "PostController");
+    Route::post("like", "PostController@like");
+    Route::post("dislike", "PostController@dislike");
+    Route::post("undo-like", "PostController@undoLike");
+    Route::post("undo-dislike", "PostController@undoDislike");
 });
