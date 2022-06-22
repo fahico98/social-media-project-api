@@ -18,6 +18,7 @@ class MeController extends Controller
     public function __invoke()
     {
         $user = auth()->user();
+        $user->load("role", "images");
         return response()->json(compact("user"));
     }
 }

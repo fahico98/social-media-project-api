@@ -2,9 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\User;
+use App\Models\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +18,26 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(User::class, function(Faker $faker){
+
+    $maritalStatus = ["none", "single", "engaged", "married"];
+    $location = $faker->city() . " - " . $faker->state();
+
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
+        "email" => $faker->unique()->freeEmail(),
+        "username" => $faker->userName(),
+        "password" => Hash::make("12345678"),
+        "biography" => $faker->paragraph(),
+        "location" => $location,
+        "birthday" => $faker->dateTimeInInterval("-40 years", "+25 years"),
+        "marital_status" => $maritalStatus[rand(0, 3)]
     ];
+});
+
+$factory->state(User::class, "male", function(Faker $faker){
+    return [ "name" => $faker->name("male") ];
+});
+
+$factory->state(User::class, "female", function(Faker $faker){
+    return [ "name" => $faker->name("female") ];
 });

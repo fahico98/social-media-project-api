@@ -74,6 +74,22 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
+     * The role which the user belongs to.
+     */
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    /**
+     * Get the images fot the related user.
+     */
+    public function images()
+    {
+        return $this->morphMany(Image::class, "owner");
+    }
+
+    /**
      * The follower users collection from the user.
      */
     public function followers()

@@ -20,14 +20,14 @@ Route::group(["prefix" => "auth", "namespace" => "Auth"], function(){
     Route::post("register", "RegisterController@register");
 });
 
-Route::group(["prefix" => "users"], function(){
-    Route::apiResource("users", "UserController")->except(["store"]);
+Route::group(["prefix" => "user"], function(){
+    // Route::apiResource("/user", "UserController")->except(["store"]);
     Route::post("follow", "UserController@follow");
     Route::post("unfollow", "UserController@unfollow");
 });
 
-Route::group(["prefix" => "posts"], function(){
-    Route::apiResource("posts", "PostController");
+Route::group(["prefix" => "post"], function(){
+    // Route::apiResource("post", "PostController");
     Route::post("like", "PostController@like");
     Route::post("dislike", "PostController@dislike");
     Route::post("undo-like", "PostController@undoLike");
