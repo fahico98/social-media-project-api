@@ -29,7 +29,7 @@ $factory->define(User::class, function(Faker $faker){
         "password" => Hash::make("12345678"),
         "biography" => $faker->paragraph(),
         "location" => $location,
-        "birthday" => $faker->dateTimeInInterval("-40 years", "+25 years"),
+        "birthday" => $faker->dateTimeInInterval("-40 years", "+22 years"),
         "marital_status" => $maritalStatus[rand(0, 3)]
     ];
 });

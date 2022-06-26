@@ -106,6 +106,14 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
+     * The posts collection related with this user.
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    /**
      * The posts collection that the user likes.
      */
     public function posts_liked()

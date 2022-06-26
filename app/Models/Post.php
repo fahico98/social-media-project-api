@@ -28,6 +28,14 @@ class Post extends Model
     ];
 
     /**
+     * The user own this post.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
      * The users collection that like this post.
      */
     public function users_that_like()
