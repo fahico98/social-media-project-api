@@ -14,6 +14,8 @@ class ImagesTableSeeder extends Seeder
     {
         DB::table("images")->insert([
 
+            // User profile and cover pictures...
+
             [
                 "image_type" => "user profile picture",
                 "owner_type" => "App\Models\User",
@@ -349,6 +351,84 @@ class ImagesTableSeeder extends Seeder
                 "owner_id" => 25,
                 "url" => asset("storage/images/users/cover-images") . "/mark-tegethoff-NbgQfUvKFE0-unsplash.jpg",
                 "file_name" => "mark-tegethoff-NbgQfUvKFE0-unsplash.jpg"
+            ],
+
+            // Post pictures...
+
+            // "owner_id" => 1
+            [
+                "image_type" => "post picture",
+                "owner_type" => "App\Models\Post",
+                "owner_id" => 1,
+                "url" => asset("storage/images/posts") . "/Alesund-Norway.jpg",
+                "file_name" => "Alesund-Norway.jpg"
+            ],
+            [
+                "image_type" => "post picture",
+                "owner_type" => "App\Models\Post",
+                "owner_id" => 1,
+                "url" => asset("storage/images/posts") . "/Comuna_13-Medellin-Colombia.jpg",
+                "file_name" => "Comuna_13-Medellin-Colombia.jpg"
+            ],
+            [
+                "image_type" => "post picture",
+                "owner_type" => "App\Models\Post",
+                "owner_id" => 1,
+                "url" => asset("storage/images/posts") . "/daniel-frank-IT1KYLmKrnk-unsplash.jpg",
+                "file_name" => "daniel-frank-IT1KYLmKrnk-unsplash.jpg"
+            ],
+
+            // "owner_id" => 2
+            [
+                "image_type" => "post picture",
+                "owner_type" => "App\Models\Post",
+                "owner_id" => 2,
+                "url" => asset("storage/images/posts") . "/jorge-dominguez-fNLBi20SFWc-unsplash.jpg",
+                "file_name" => "jorge-dominguez-fNLBi20SFWc-unsplash.jpg"
+            ],
+
+            // "owner_id" => 3
+            [
+                "image_type" => "post picture",
+                "owner_type" => "App\Models\Post",
+                "owner_id" => 3,
+                "url" => asset("storage/images/posts") . "/sule-makaroglu-YFmvjO3TP_s-unsplash.jpg",
+                "file_name" => "sule-makaroglu-YFmvjO3TP_s-unsplash.jpg"
+            ],
+            [
+                "image_type" => "post picture",
+                "owner_type" => "App\Models\Post",
+                "owner_id" => 3,
+                "url" => asset("storage/images/posts") . "/anastase-maragos-DHsdSeCpjRU-unsplash.jpg",
+                "file_name" => "anastase-maragos-DHsdSeCpjRU-unsplash.jpg"
+            ],
+            [
+                "image_type" => "post picture",
+                "owner_type" => "App\Models\Post",
+                "owner_id" => 3,
+                "url" => asset("storage/images/posts") . "/jesper-aggergaard-rA5aJvQ2l6g-unsplash.jpg",
+                "file_name" => "jesper-aggergaard-rA5aJvQ2l6g-unsplash.jpg"
+            ],
+            [
+                "image_type" => "post picture",
+                "owner_type" => "App\Models\Post",
+                "owner_id" => 3,
+                "url" => asset("storage/images/posts") . "/anastase-maragos-7kEpUPB8vNk-unsplash.jpg",
+                "file_name" => "anastase-maragos-7kEpUPB8vNk-unsplash.jpg"
+            ],
+            [
+                "image_type" => "post picture",
+                "owner_type" => "App\Models\Post",
+                "owner_id" => 3,
+                "url" => asset("storage/images/posts") . "/alexander-jawfox-Kl2t5U6Gkm0-unsplash.jpg",
+                "file_name" => "alexander-jawfox-Kl2t5U6Gkm0-unsplash.jpg"
+            ],
+            [
+                "image_type" => "post picture",
+                "owner_type" => "App\Models\Post",
+                "owner_id" => 3,
+                "url" => asset("storage/images/posts") . "/philip-myrtorp-oLt9TFuDnB4-unsplash.jpg",
+                "file_name" => "philip-myrtorp-oLt9TFuDnB4-unsplash.jpg"
             ]
         ]);
     }

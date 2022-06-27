@@ -19,6 +19,7 @@ class UsersTableSeeder extends Seeder
             "name" => "Fahibram Cárcamo Cárcamo",
             "email" => "fahico98@gmail.com",
             "username" => "fahico98",
+            "gender" => "male",
             "password" => Hash::make("12345678"),
             "role_id" => 2,
             "biography" => "Aut est et vel ut. Consequatur numquam repellat reiciendis nulla laboriosam dolorum. Voluptate architecto ea asperiores et velit voluptas. Distinctio consectetur et quod repellendus et ipsum et."

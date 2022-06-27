@@ -27,7 +27,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::with(["user", "images", "videos"])->get();
+        return response()->json(compact("posts"));
     }
 
     /**

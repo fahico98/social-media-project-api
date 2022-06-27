@@ -16,7 +16,6 @@ class CreatePostsTable extends Migration
         Schema::create("posts", function (Blueprint $table) {
             $table->bigIncrements("id");
             $table->unsignedBigInteger("user_id");
-            $table->string("title");
             $table->text("content"); // 65,535 characters
             $table->timestamps();
         });

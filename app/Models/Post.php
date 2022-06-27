@@ -24,7 +24,7 @@ class Post extends Model
      * @var array
      */
     protected $hidden = [
-        "id"
+        // "id"
     ];
 
     /**
@@ -33,6 +33,22 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * The images collection related with this post.
+     */
+    public function images()
+    {
+        return $this->morphMany(Image::class, "owner");
+    }
+
+    /**
+     * The images collection related with this post.
+     */
+    public function videos()
+    {
+        return $this->morphMany(Video::class, "owner");
     }
 
     /**

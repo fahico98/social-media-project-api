@@ -35,9 +35,9 @@ $factory->define(User::class, function(Faker $faker){
 });
 
 $factory->state(User::class, "male", function(Faker $faker){
-    return [ "name" => $faker->name("male") ];
+    return ["name" => $faker->name("male"), "gender" => "male"];
 });
 
 $factory->state(User::class, "female", function(Faker $faker){
-    return [ "name" => $faker->name("female") ];
+    return ["name" => $faker->name("female"), "gender" => "female"];
 });

@@ -26,7 +26,6 @@ class Image extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        "id",
         "owner_id",
         "owner_type"
     ];

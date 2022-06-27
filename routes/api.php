@@ -28,6 +28,7 @@ Route::group(["prefix" => "user"], function(){
 
 Route::group(["prefix" => "post"], function(){
     // Route::apiResource("post", "PostController");
+    Route::get("/", "PostController@index");
     Route::post("like", "PostController@like");
     Route::post("dislike", "PostController@dislike");
     Route::post("undo-like", "PostController@undoLike");
